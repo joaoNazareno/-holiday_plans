@@ -1,0 +1,251 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Holiday Plan API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/holiday-plans": {
+            "post": {
+                "summary": "Create a new holiday plan",
+                "operationId": "d9eec2df86df974c3048dc86e95fbe4a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "description",
+                                    "date",
+                                    "location"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    },
+                                    "participants": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Holiday plan created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HolidayPlan"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/holiday-plans/{id}": {
+            "get": {
+                "summary": "Get a specific holiday plan",
+                "operationId": "d142d4a2949432f8e97a53f73588e3a3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Holiday plan details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HolidayPlan"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Holiday plan not found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a holiday plan",
+                "operationId": "e24198cc906134de1e694ca3ebf23909",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title",
+                                    "description",
+                                    "date",
+                                    "location"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "date": {
+                                        "type": "string",
+                                        "format": "date"
+                                    },
+                                    "location": {
+                                        "type": "string"
+                                    },
+                                    "participants": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Holiday plan updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HolidayPlan"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Holiday plan not found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a holiday plan",
+                "operationId": "15089a3837700d65d9312b11ad168bf3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Holiday plan deleted"
+                    },
+                    "404": {
+                        "description": "Holiday plan not found"
+                    }
+                }
+            }
+        },
+        "/api/holiday-plans/{id}/generate-pdf": {
+            "post": {
+                "summary": "Generate PDF for a holiday plan",
+                "operationId": "5e73ca4385b031157458b59e9228f0de",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "PDF generated and downloaded",
+                        "content": {
+                            "application/pdf": {
+                                "schema": {
+                                    "type": "string",
+                                    "format": "binary"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Holiday plan not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "HolidayPlan": {
+                "title": "Holiday Plan",
+                "description": "Holiday Plan model",
+                "required": [
+                    "title",
+                    "description",
+                    "date",
+                    "location"
+                ],
+                "properties": {
+                    "id": {
+                        "description": "ID of the holiday plan",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "Title of the holiday plan",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "Description of the holiday plan",
+                        "type": "string"
+                    },
+                    "date": {
+                        "description": "Date of the holiday plan",
+                        "type": "string",
+                        "format": "date"
+                    },
+                    "location": {
+                        "description": "Location of the holiday plan",
+                        "type": "string"
+                    },
+                    "participants": {
+                        "description": "Participants in the holiday plan",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
