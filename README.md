@@ -34,7 +34,8 @@ json
         "participants": "Alice, Bob"
     }
 ]
-2. Create a New Holiday Plan
+### 2. Create a New Holiday Plan
+
 Method: POST
 URL: /holiday-plans
 Description: Cria um novo plano de férias.
@@ -60,7 +61,8 @@ json
     "location": "Hawaii",
     "participants": "John, Mary"
 }
-3. Get a Specific Holiday Plan
+### 3. Get a Specific Holiday Plan
+
 Method: GET
 URL: /holiday-plans/{id}
 Description: Retorna os detalhes de um plano de férias específico.
@@ -77,7 +79,8 @@ json
     "location": "Hawaii",
     "participants": "John, Mary"
 }
-4. Update a Holiday Plan
+### 4. Update a Holiday Plan
+
 Method: PUT
 URL: /holiday-plans/{id}
 Description: Atualiza os detalhes de um plano de férias existente.
@@ -103,7 +106,8 @@ json
     "location": "Hawaii",
     "participants": "John, Mary, Alice"
 }
-5. Delete a Holiday Plan
+### 5. Delete a Holiday Plan
+
 Method: DELETE
 URL: /holiday-plans/{id}
 Description: Exclui um plano de férias existente.
@@ -113,7 +117,8 @@ DELETE /api/holiday-plans/{id}
 Response:
 bash
 HTTP 204 No Content
-6. Generate PDF for a Holiday Plan
+### 6. Generate PDF for a Holiday Plan
+
 Method: POST
 URL: /holiday-plans/{id}/generate-pdf
 Description: Gera um PDF para um plano de férias específico.
@@ -129,9 +134,10 @@ description: (string, obrigatório) A descrição do plano.
 date: (string, obrigatório) A data do plano no formato YYYY-MM-DD.
 location: (string, obrigatório) O local do plano de férias.
 participants: (string, opcional) Os participantes do plano.
-Exemplos de Respostas
+
+### Exemplos de Respostas
+
 201 Created: Quando um novo plano de férias é criado com sucesso.
 200 OK: Quando um plano de férias é retornado ou atualizado com sucesso.
 204 No Content: Quando um plano de férias é excluído com sucesso.
 404 Not Found: Quando o plano de férias solicitado não é encontrado.
-javascript
