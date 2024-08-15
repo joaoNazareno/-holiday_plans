@@ -34,7 +34,7 @@ json
         "participants": "Alice, Bob"
     }
 ]
-### 2. Create a New Holiday Plan
+ 2. Create a New Holiday Plan
 
 Method: POST
 URL: /holiday-plans
@@ -61,7 +61,7 @@ json
     "location": "Hawaii",
     "participants": "John, Mary"
 }
-### 3. Get a Specific Holiday Plan
+ 3. Get a Specific Holiday Plan
 
 Method: GET
 URL: /holiday-plans/{id}
@@ -79,7 +79,7 @@ json
     "location": "Hawaii",
     "participants": "John, Mary"
 }
-### 4. Update a Holiday Plan
+4. Update a Holiday Plan
 
 Method: PUT
 URL: /holiday-plans/{id}
@@ -106,7 +106,7 @@ json
     "location": "Hawaii",
     "participants": "John, Mary, Alice"
 }
-### 5. Delete a Holiday Plan
+5. Delete a Holiday Plan
 
 Method: DELETE
 URL: /holiday-plans/{id}
@@ -117,7 +117,7 @@ DELETE /api/holiday-plans/{id}
 Response:
 bash
 HTTP 204 No Content
-### 6. Generate PDF for a Holiday Plan
+6. Generate PDF for a Holiday Plan
 
 Method: POST
 URL: /holiday-plans/{id}/generate-pdf
@@ -135,7 +135,7 @@ date: (string, obrigatório) A data do plano no formato YYYY-MM-DD.
 location: (string, obrigatório) O local do plano de férias.
 participants: (string, opcional) Os participantes do plano.
 
-### Exemplos de Respostas
+ Exemplos de Respostas
 
 201 Created: Quando um novo plano de férias é criado com sucesso.
 200 OK: Quando um plano de férias é retornado ou atualizado com sucesso.
