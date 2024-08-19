@@ -3,27 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\HolidayPlan;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreHolidayPlanRequest;
 use PDF;
-
 
 class HolidayPlanController extends Controller
 {
-
     public function index()
     {
         return HolidayPlan::all();
     }
 
-    public function store(Request $request)
+    public function store(StoreHolidayPlanRequest $request)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'date' => 'required|date_format:Y-m-d',
-            'location' => 'required|string|max:255',
-            'participants' => 'nullable|string',
-        ]);
+        $validatedData = $request->validated();
 
         return HolidayPlan::create($validatedData);
     }
@@ -33,15 +25,9 @@ class HolidayPlanController extends Controller
         return $holidayPlan;
     }
 
-    public function update(Request $request, HolidayPlan $holidayPlan)
+    public function update(StoreHolidayPlanRequest $request, HolidayPlan $holidayPlan)
     {
-        $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'date' => 'required|date_format:Y-m-d',
-            'location' => 'required|string|max:255',
-            'participants' => 'nullable|string',
-        ]);
+        $validatedData = $request->validated();
 
         $holidayPlan->update($validatedData);
 

@@ -1,10 +1,83 @@
 # Holiday Plan API Documentation
 
+Como Rodar o Projeto
+
+Pré-requisitos
+Certifique-se de ter os seguintes itens instalados no seu sistema:
+
+PHP (versão 8.0 ou superior)
+Composer
+MySQL
+Laravel (instalado via Composer)
+Docker (opcional, para usar com Docker)
+Passos para Configuração
+Clone o Repositório
+
+Clone este repositório para o seu ambiente local:
+
+bash
+git clone https://seu-repositorio-url.git
+cd nome-do-repositorio
+Instale as Dependências
+
+Use o Composer para instalar as dependências do projeto:
+
+bash
+composer install
+Configure o Ambiente
+
+Copie o arquivo .env.example para .env e configure as variáveis de ambiente, como banco de dados e chave de aplicativo:
+
+bash
+
+cp .env.example .env
+Abra o arquivo .env e ajuste as configurações conforme necessário, por exemplo, para conexão com o banco de dados.
+
+Gere a Chave de Aplicativo
+
+Gere a chave de aplicação Laravel:
+
+bash
+php artisan key:generate
+Execute as Migrações
+
+Execute as migrações para criar as tabelas necessárias no banco de dados:
+
+bash
+php artisan migrate
+Inicie o Servidor de Desenvolvimento
+
+Inicie o servidor de desenvolvimento do Laravel:
+
+bash
+php artisan serve
+A aplicação estará disponível em http://localhost:8000.
+
+Usando Docker
+Se você estiver usando Docker, siga estes passos:
+
+Construa as Imagens Docker
+
+bash
+docker-compose build
+Inicie os Contêineres
+
+bash
+docker-compose up
+O projeto estará disponível em http://localhost.
+
+Testes
+Para rodar os testes do projeto, use o PHPUnit:
+
+bash
+php artisan test
+
+
+
 ## Base URL
 
 http://localhost:8000
 ## Endpoints
-
 ### 1. List All Holiday Plans
 
 - **Method:** GET
