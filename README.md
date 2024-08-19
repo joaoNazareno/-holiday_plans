@@ -1,8 +1,9 @@
 # Holiday Plan API Documentation
 
-Como Rodar o Projeto
+## Como Rodar o Projeto
 
-Pré-requisitos
+#### Pré-requisitos
+```bash
 Certifique-se de ter os seguintes itens instalados no seu sistema:
 
 PHP (versão 8.0 ou superior)
