@@ -17,7 +17,7 @@ Clone o Repositório
 Clone este repositório para o seu ambiente local:
 
 bash
-git clone https://seu-repositorio-url.git
+git clone https://github.com/joaoNazareno/-holiday_plans.git
 cd nome-do-repositorio
 Instale as Dependências
 
