@@ -1,218 +1,82 @@
-# Holiday Plan API Documentation
+Aqui está o README revisado para o seu projeto, de forma resumida e sem os gráficos:
+
+---
+
+
+<br>
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=DC143C&size=35&center=true&vCenter=true&width=1000&lines=HOLIDAY+PLAN+API;Easily+Manage+Your+Holiday+Plans!+:%29)](https://git.io/typing-svg)
 
 ## Como Rodar o Projeto
 
-#### Pré-requisitos
+### Pré-requisitos
 
-Certifique-se de ter os seguintes itens instalados no seu sistema:
+- ![PHP](https://img.shields.io/badge/-PHP-0D1117?style=for-the-badge&logo=php&labelColor=0D1117)&nbsp; 8.0+
+- ![Composer](https://img.shields.io/badge/-Composer-0D1117?style=for-the-badge&logo=composer&labelColor=0D1117)&nbsp;
+- ![MySQL](https://img.shields.io/badge/-MySQL-0D1117?style=for-the-badge&logo=mysql&labelColor=0D1117)&nbsp;
+- ![Laravel](https://img.shields.io/badge/-Laravel-0D1117?style=for-the-badge&logo=laravel&labelColor=0D1117)&nbsp;
+- ![Docker](https://img.shields.io/badge/-Docker-0D1117?style=for-the-badge&logo=docker&labelColor=0D1117)&nbsp; (opcional)
 
-PHP (versão 8.0 ou superior)
-Composer
-MySQL
-Laravel (instalado via Composer)
-Docker (opcional, para usar com Docker)
-Passos para Configuração
-Clone o Repositório
+### Configuração
 
-Clone este repositório para o seu ambiente local:
+1. **Clone o Repositório:**
+   ```bash
+   git clone https://github.com/joaoNazareno/holiday_plans.git
+   cd holiday_plans
+   ```
 
-bash
-git clone https://github.com/joaoNazareno/-holiday_plans.git
-cd nome-do-repositorio
-Instale as Dependências
+2. **Instale as Dependências:**
+   ```bash
+   composer install
+   ```
 
-Use o Composer para instalar as dependências do projeto:
+3. **Configure o Ambiente:**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-bash
-composer install
-Configure o Ambiente
+4. **Execute as Migrações:**
+   ```bash
+   php artisan migrate
+   ```
 
-Copie o arquivo .env.example para .env e configure as variáveis de ambiente, como banco de dados e chave de aplicativo:
+5. **Inicie o Servidor:**
+   ```bash
+   php artisan serve
+   ```
+   Acesse em [http://localhost:8000](http://localhost:8000).
 
-bash
+### Usando Docker
 
-cp .env.example .env
-Abra o arquivo .env e ajuste as configurações conforme necessário, por exemplo, para conexão com o banco de dados.
+1. **Construa as Imagens:**
+   ```bash
+   docker-compose build
+   ```
 
-Gere a Chave de Aplicativo
+2. **Inicie os Contêineres:**
+   ```bash
+   docker-compose up
+   ```
+   Acesse em [http://localhost](http://localhost).
 
-Gere a chave de aplicação Laravel:
+### Testes
 
-bash
-php artisan key:generate
-Execute as Migrações
+Execute os testes com PHPUnit:
 
-Execute as migrações para criar as tabelas necessárias no banco de dados:
-
-bash
-php artisan migrate
-Inicie o Servidor de Desenvolvimento
-
-Inicie o servidor de desenvolvimento do Laravel:
-
-bash
-php artisan serve
-A aplicação estará disponível em http://localhost:8000.
-
-Usando Docker
-Se você estiver usando Docker, siga estes passos:
-
-Construa as Imagens Docker
-
-bash
-docker-compose build
-Inicie os Contêineres
-
-bash
-docker-compose up
-O projeto estará disponível em http://localhost.
-
-Testes
-Para rodar os testes do projeto, use o PHPUnit:
-
-bash
-php artisan test
-
-
-
-## URL DA API FUNCIONANDO(VÍDEO)
-
-https://drive.google.com/file/d/1bhUWxr3wFQDbS-Nama3Vtsd_TgSA0sVa/view?usp=sharing
-
-## Endpoints
-### 1. List All Holiday Plans
-
-- **Method:** GET
-- **URL:** `/holiday-plans`
-- **Description:** Retorna uma lista com todos os planos de férias cadastrados.
-
-#### Request:
 ```bash
-GET /api/holiday-plans
-Response:
-json
-[
-    {
-        "id": 1,
-        "title": "Férias",
-        "description": "Uma viagem agradável para a praia.",
-        "date": "2024-08-01",
-        "location": "Hawaii",
-        "participants": "John, Mary"
-    },
-    {
-        "id": 2,
-        "title": "Férias na montanha",
-        "description": "Relaxando nas montanhas.",
-        "date": "2024-09-15",
-        "location": "Alpes",
-        "participants": "Alice, Bob"
-    }
-]
- 2. Create a New Holiday Plan
+php artisan test
+```
 
-Method: POST
-URL: /holiday-plans
-Description: Cria um novo plano de férias.
-Request:
-bash
-POST /api/holiday-plans
-Request Body:
-json
-{
-    "title": "Férias",
-    "description": "Uma viagem agradável para a praia.",
-    "date": "2024-08-01",
-    "location": "Hawaii",
-    "participants": "John, Mary"
-}
-Response:
-json
-{
-    "id": 3,
-    "title": "Férias",
-    "description": "Uma viagem agradável para a praia.",
-    "date": "2024-08-01",
-    "location": "Hawaii",
-    "participants": "John, Mary"
-}
- 3. Get a Specific Holiday Plan
+## Endpoints Principais
 
-Method: GET
-URL: /holiday-plans/{id}
-Description: Retorna os detalhes de um plano de férias específico.
-Request:
-bash
-GET /api/holiday-plans/{id}
-Response:
-json
-{
-    "id": 1,
-    "title": "Férias",
-    "description": "Uma viagem agradável para a praia.",
-    "date": "2024-08-01",
-    "location": "Hawaii",
-    "participants": "John, Mary"
-}
-4. Update a Holiday Plan
+1. **Listar Planos:** `GET /api/holiday-plans`
+2. **Criar Plano:** `POST /api/holiday-plans`
+3. **Detalhar Plano:** `GET /api/holiday-plans/{id}`
+4. **Atualizar Plano:** `PUT /api/holiday-plans/{id}`
+5. **Excluir Plano:** `DELETE /api/holiday-plans/{id}`
+6. **Gerar PDF:** `POST /api/holiday-plans/{id}/generate-pdf`
 
-Method: PUT
-URL: /holiday-plans/{id}
-Description: Atualiza os detalhes de um plano de férias existente.
-Request:
-bash
-PUT /api/holiday-plans/{id}
-Request Body:
-json
-{
-    "title": "Férias Atualizadas",
-    "description": "Uma viagem agradável para a praia com amigos.",
-    "date": "2024-08-02",
-    "location": "Hawaii",
-    "participants": "John, Mary, Alice"
-}
-Response:
-json
-{
-    "id": 1,
-    "title": "Férias Atualizadas",
-    "description": "Uma viagem agradável para a praia com amigos.",
-    "date": "2024-08-02",
-    "location": "Hawaii",
-    "participants": "John, Mary, Alice"
-}
-5. Delete a Holiday Plan
+## [Vídeo de Demonstração](https://drive.google.com/file/d/1bhUWxr3wFQDbS-Nama3Vtsd_TgSA0sVa/view?usp=sharing)
 
-Method: DELETE
-URL: /holiday-plans/{id}
-Description: Exclui um plano de férias existente.
-Request:
-bash
-DELETE /api/holiday-plans/{id}
-Response:
-bash
-HTTP 204 No Content
-6. Generate PDF for a Holiday Plan
-
-Method: POST
-URL: /holiday-plans/{id}/generate-pdf
-Description: Gera um PDF para um plano de férias específico.
-Request:
-bash
-POST /api/holiday-plans/{id}/generate-pdf
-Response:
-Tipo de mídia: application/pdf
-Descrição: O PDF é baixado automaticamente.
-Parâmetros de Solicitação
-title: (string, obrigatório) O título do plano de férias.
-description: (string, obrigatório) A descrição do plano.
-date: (string, obrigatório) A data do plano no formato YYYY-MM-DD.
-location: (string, obrigatório) O local do plano de férias.
-participants: (string, opcional) Os participantes do plano.
-
- Exemplos de Respostas
-
-201 Created: Quando um novo plano de férias é criado com sucesso.
-200 OK: Quando um plano de férias é retornado ou atualizado com sucesso.
-204 No Content: Quando um plano de férias é excluído com sucesso.
-404 Not Found: Quando o plano de férias solicitado não é encontrado.
+--- 
