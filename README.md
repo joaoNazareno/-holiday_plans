@@ -1,4 +1,4 @@
-Aqui está o README revisado para o seu projeto, de forma resumida e sem os gráficos:
+
 
 ---
 
